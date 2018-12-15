@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	enterWord.Enter()
+	keyboard.EnterWord()
 }

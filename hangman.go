@@ -8,11 +8,8 @@ import (
 )
 
 func main() {
-	newWord, _ := keyboard.EnterWord()
-	fmt.Println(newWord)
-
-	newSymbol, _ := keyboard.EnterSymbol()
-	fmt.Println(newSymbol)
+	newWord, _ := keyboard.EnterWord("Enter new word: ")
+	newSymbol, _ := keyboard.EnterWord("Enter new symbol: ")
 
 	if s.Contains(newWord, newSymbol) == true {
 		fmt.Println("tryam")

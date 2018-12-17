@@ -5,29 +5,17 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
+	s "strings"
 )
 
 // EnterWord func allow user inter new word
-func EnterWord() (string, error) {
-	fmt.Println("Enter new word: ")
+func EnterWord(request string) (string, error) {
+	fmt.Println(request)
 	reader := bufio.NewReader(os.Stdin)
 	word, err := reader.ReadString('\n')
 	if err != nil {
 		return "0", err
 	}
-	word = strings.ToUpper(word)
+	word = s.TrimSpace(s.ToUpper(word))
 	return word, nil
-}
-
-// EnterSymbol allow user inter new symbol
-func EnterSymbol() (string, error) {
-	fmt.Println("Enter new symbol: ")
-	reader := bufio.NewReader(os.Stdin)
-	symbol, err := reader.ReadString('\n')
-	if err != nil {
-		return "0", err
-	}
-	symbol = strings.ToUpper(symbol)
-	return symbol, nil
 }

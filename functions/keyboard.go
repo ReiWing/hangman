@@ -19,3 +19,15 @@ func EnterWord() (string, error) {
 	word = strings.ToUpper(word)
 	return word, nil
 }
+
+// EnterSymbol allow user inter new symbol
+func EnterSymbol() (string, error) {
+	fmt.Println("Enter new symbol: ")
+	reader := bufio.NewReader(os.Stdin)
+	symbol, err := reader.ReadString('\n')
+	if err != nil {
+		return "0", err
+	}
+	symbol = strings.ToUpper(symbol)
+	return symbol, nil
+}

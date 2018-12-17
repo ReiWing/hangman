@@ -4,16 +4,29 @@ import (
 	"fmt"
 	s "strings"
 
-	"github.com/reiwing/hangman/functions"
+	k "github.com/reiwing/hangman/packages/keyboard"
 )
 
 func main() {
-	newWord, _ := keyboard.EnterWord("Enter new word: ")
-	newSymbol, _ := keyboard.EnterWord("Enter new symbol: ")
+	usedSymbols := ""
+	guessesCustom, _ := k.GetInt("Enter guesses: ")
+	newWord, _ := k.ReturnWord("Enter new word: ")
 
-	if s.Contains(newWord, newSymbol) == true {
-		fmt.Println("tryam")
-	} else {
-		fmt.Println("bol'")
+	for guesses := 0; guesses < guessesCustom; {
+
+		newSymbol, _ := k.ReturnWord("Enter new symbol: ")
+		if s.Contains(newWord, newSymbol) == true {
+			fmt.Println("tryam")
+			usedSymbols = usedSymbols + newSymbol
+			fmt.Println("Used symbols:", usedSymbols)
+		} else {
+			fmt.Println("bol'")
+			usedSymbols = usedSymbols + newSymbol
+			fmt.Println("Used symbols: ", usedSymbols)
+			guesses++
+			fmt.Println("You have ", guessesCustom-guesses, " guesses left")
+		}
+
 	}
+
 }

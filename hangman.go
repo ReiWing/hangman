@@ -10,15 +10,15 @@ import (
 func main() {
 	usedSymbols := ""
 	guessesCustom, _ := k.GetInt("Enter guesses: ")
-	newWord, _ := k.ReturnWord("Enter new word: ")
+	newWord, _ := k.GetWord("Enter new word: ")
+	length := len(newWord)
+	fmt.Println(length)
 
 	for guesses := 0; guesses < guessesCustom; {
 
-		newSymbol, _ := k.ReturnWord("Enter new symbol: ")
+		newSymbol, _ := k.GetWord("Enter new symbol: ")
 		if s.Contains(newWord, newSymbol) == true {
 			fmt.Println("tryam")
-			usedSymbols = usedSymbols + newSymbol
-			fmt.Println("Used symbols:", usedSymbols)
 		} else {
 			fmt.Println("bol'")
 			usedSymbols = usedSymbols + newSymbol

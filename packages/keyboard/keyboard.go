@@ -9,8 +9,8 @@ import (
 	s "strings"
 )
 
-// ReturnWord func allow user to inter new word
-func ReturnWord(request string) (string, error) {
+// GetWord func allow user to inter new word
+func GetWord(request string) (string, error) {
 	fmt.Println(request)
 	reader := bufio.NewReader(os.Stdin)
 	word, err := reader.ReadString('\n')

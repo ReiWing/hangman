@@ -8,14 +8,13 @@ import (
 )
 
 func main() {
-	usedSymbols := ""
-	guessesCustom, _ := k.GetInt("Enter guesses: ")
+	guessesCustom, _ := k.GetInt("Enter available guesses: ")
 	newWord, _ := k.GetWord("Enter new word: ")
-	length := len(newWord)
-	fmt.Println(length)
+	k.ClearTerminal()
+	fmt.Println(k.ReplaceAll(newWord, "_ "))
 
+	usedSymbols := ""
 	for guesses := 0; guesses < guessesCustom; {
-
 		newSymbol, _ := k.GetWord("Enter new symbol: ")
 		if s.Contains(newWord, newSymbol) == true {
 			fmt.Println("tryam")

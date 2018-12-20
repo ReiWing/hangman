@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"regexp"
 	"strconv"
 	s "strings"
 )
@@ -35,4 +36,16 @@ func GetInt(request string) (int, error) {
 		return 0, err
 	}
 	return numberInt, nil
+}
+
+// ReplaceAll func replace all symbols in a string
+func ReplaceAll(word string, symbol string) string {
+	re := regexp.MustCompile(".")
+	reString := re.ReplaceAllString(word, symbol)
+	return reString
+}
+
+//ClearTerminal just clear terminal with ANSI escape codes
+func ClearTerminal() {
+	print("\033[H\033[2J")
 }
